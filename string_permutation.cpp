@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void permute_string(string str, int low, int high)
+void string_permute(string str, int low, int high)
 {
     if (low == high)
     {
@@ -14,14 +14,14 @@ void permute_string(string str, int low, int high)
     for (int i = low; i <= high; i++)
     {
         swap(str[low], str[i]);
-        permute_string(str, low + 1, high);
-        swap(str[low], str[i]);
+        string_permute(str, low + 1, high);
+        swap(str[low], str[i]); // backtrack hoche ekhane karon jeta swap chilo abar swap kore same state....e fire jachi
     }
 }
 
 int main(int argc, char const *argv[])
 {
-    string str = "abc";
-    permute_string(str, 0, str.length() - 1);
+    string str = "aritra";
+    string_permute(str, 0, str.length() - 1);
     return 0;
 }
